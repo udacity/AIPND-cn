@@ -46,7 +46,9 @@ class RobotControllortTestCase(unittest.TestCase):
 
     def test_valid_actions(self):
         self.assertEqual(valid_actions(env_data, (0, 8)), ['d'])
-        self.assertEqual(valid_actions(env_data, (1, 0)), ['u', 'r'])
+
+        result_list = valid_actions(env_data, (1, 0))
+        self.assertTrue(['u', 'r'] == result_list or ['r', 'u'] == result_list)
 
     def test_move_robot(self):
         self.assertEqual(move_robot((1, 0), 'u'), (0, 0))
